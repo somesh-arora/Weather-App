@@ -12,6 +12,9 @@
 		CE180AAD20DA2062004DB4CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE180AAB20DA2062004DB4CD /* Main.storyboard */; };
 		CE180AAF20DA2063004DB4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE180AAE20DA2063004DB4CD /* Assets.xcassets */; };
 		CE180AB220DA2063004DB4CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE180AB020DA2063004DB4CD /* LaunchScreen.storyboard */; };
+		CE180ABA20DA209E004DB4CD /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE180AB920DA209E004DB4CD /* Network.swift */; };
+		CE180ABD20DA2C21004DB4CD /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE180ABC20DA2C21004DB4CD /* ForecastService.swift */; };
+		CE180ABF20DA2DE9004DB4CD /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE180ABE20DA2DE9004DB4CD /* CurrentWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		CE180AAE20DA2063004DB4CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE180AB120DA2063004DB4CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE180AB320DA2063004DB4CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE180AB920DA209E004DB4CD /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		CE180ABC20DA2C21004DB4CD /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
+		CE180ABE20DA2DE9004DB4CD /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +62,23 @@
 			children = (
 				CE180AA720DA2062004DB4CD /* AppDelegate.swift */,
 				CE180AA920DA2062004DB4CD /* ViewController.swift */,
+				CE180ABB20DA20CC004DB4CD /* ModelGroup */,
 				CE180AAB20DA2062004DB4CD /* Main.storyboard */,
 				CE180AAE20DA2063004DB4CD /* Assets.xcassets */,
 				CE180AB020DA2063004DB4CD /* LaunchScreen.storyboard */,
 				CE180AB320DA2063004DB4CD /* Info.plist */,
 			);
 			path = "Weather App";
+			sourceTree = "<group>";
+		};
+		CE180ABB20DA20CC004DB4CD /* ModelGroup */ = {
+			isa = PBXGroup;
+			children = (
+				CE180AB920DA209E004DB4CD /* Network.swift */,
+				CE180ABC20DA2C21004DB4CD /* ForecastService.swift */,
+				CE180ABE20DA2DE9004DB4CD /* CurrentWeather.swift */,
+			);
+			path = ModelGroup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE180ABD20DA2C21004DB4CD /* ForecastService.swift in Sources */,
+				CE180ABF20DA2DE9004DB4CD /* CurrentWeather.swift in Sources */,
 				CE180AAA20DA2062004DB4CD /* ViewController.swift in Sources */,
 				CE180AA820DA2062004DB4CD /* AppDelegate.swift in Sources */,
+				CE180ABA20DA209E004DB4CD /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

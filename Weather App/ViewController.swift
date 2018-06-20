@@ -8,14 +8,50 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
+    
+    let forecastAPIKey = "43a68eb0e80b803fe4e058098f2bd7c7"
+    let coordinate: (lat: Double, long: Double) = (37.8267,-122.4233)
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let forecastService = ForecaseService(APIKey: forecastAPIKey)
+        forecastService.getForecast(latitude: coordinate.lat, longitude: coordinate.long) { (currentWeather) in
+            if let currentWeather = currentWeather
+            {
+                DispatchQueue.main.async
+                {
+                    if let temperature = currentWeather.temperature
+                    {
+                        self.temperatureLabel.text = "\(temperature)"
+                    }
+                    else
+                    {
+                        self.temperatureLabel.text = "-"
+                    }
+                    if let summary = currentWeather.summary
+                    {
+                        self.summaryLabel.text = "\(summary)"
+                    }
+                    else
+                    {
+                        self.summaryLabel.text = "-"
+                    }
+                    
+                }
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
