@@ -9,33 +9,23 @@
 import Foundation
 
 
-class ForecaseService
-{
+class ForecaseService {
     let forecastAPIKey: String
     let forecastBaseURL:  URL?
     
-    // forecaseBaseURL/forecaseAPIKey/latitude, longitude
-    
-    init(APIKey: String)
-    {
+    init(APIKey: String) {
         self.forecastAPIKey = APIKey
         forecastBaseURL = URL(string: "https://api.darksky.net/forecast/\(APIKey)")
     }
     
-    func getForecast(latitude: Double, longitude: Double, completion: @escaping (CurrentWeather?) -> Void)
-    {
-        if let forecastURL = URL(string: "\(forecastBaseURL!)/\(latitude),\(longitude)")
-        {
+    func getForecast(latitude: Double, longitude: Double, completion: @escaping (CurrentWeather?) -> Void) {
+        if let forecastURL = URL(string: "\(forecastBaseURL!)/\(latitude),\(longitude)") {
             let network = Network(url: forecastURL)
             network.downloadJSONFromURL (_completion: { (jsonDictionary) in
-                
-                if let currentWeatherDictionary = jsonDictionary?["currently"] as? [String: Any]
-                {
+                if let currentWeatherDictionary = jsonDictionary?["currently"] as? [String: Any] {
                     let currentWeather = CurrentWeather(weatherDictionary: currentWeatherDictionary)
                     completion(currentWeather)
-                }
-                else
-                {
+                } else {
                     completion(nil)
                 }
             })
